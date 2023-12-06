@@ -27,7 +27,13 @@ const Banner = ({ fields }: bannerDataProps) => {
     <div data-component="authorable/general/banner" data-testid="banner">
       <div className="relative">
         <Image field={fields?.image} className="onject-cover  text-white" />
-        <div className="md:m-8 md:p-4 md:absolute inset-0  md:flex md:justify-center md:items-center flex-col ">
+        <div
+          className={clsx('md:m-8 md:p-4 md:absolute inset-0  md:flex  ', {
+            'md:justify-center md:items-start flex-col': fields.contentPosition.value === 'default',
+            'md:justify-center md:items-center flex-col': fields.contentPosition.value === 'center',
+            'md:justify-center md:items-end flex-col': fields.contentPosition.value === 'right',
+          })}
+        >
           <div
             className={clsx(' font-sans text-2xl flex flex-col md:rounded-lg p-4 md:w-1/2', {
               'bg-black': fields?.contentPosition?.value === 'default',
@@ -35,14 +41,12 @@ const Banner = ({ fields }: bannerDataProps) => {
                 fields?.contentPosition?.value === 'default',
               'bg-blue-500 text-white md:bg-white md:bg-opacity-30  md:text-blue-500  justify-center items-center':
                 fields?.contentPosition?.value === 'center',
-              'bg-green-600 bg-opacity-30 text-orange-500  justify-end items-end ':
+              'bg-orange-600 bg-opacity-30 text-green-500 md:bg-green-600 md:bg-opacity-30 md:text-orange-500  justify-end items-end ':
                 fields?.contentPosition?.value === 'right',
             })}
           >
             <div className={'container mx-auto'}>
-              <div
-                className={clsx('md:flex flex-col rounded-md overflow z-10 sm:flex sm:flex-col')}
-              >
+              <div className={clsx('flex flex-col rounded-md  z-10 sm:flex sm:flex-col')}>
                 <Text
                   tag="h4"
                   className={clsx('mt-2   font-bold font-sans text-xl lg:text-4xl ', {
@@ -85,9 +89,9 @@ const Banner = ({ fields }: bannerDataProps) => {
                         'text-lg md:text-xl  text-white  md:text-green-500  hover:text-white cursor-pointer ':
                           fields?.contentPosition?.value === 'default',
 
-                        'text-lg md:text-xl  text-white  md:text-blue-500  hover:text-blue-500 cursor-pointer ':
+                        'text-lg md:text-xl  text-white  md:text-blue-500  hover:text-white cursor-pointer ':
                           fields?.contentPosition?.value === 'center',
-                        'text-lg md:text-xl  text-orange-500  hover:text-white cursor-pointer ':
+                        'text-lg md:text-xl  text-grenn-500  hover:text-white cursor-pointer ':
                           fields?.contentPosition?.value === 'right',
                       }
                     )}
