@@ -22,7 +22,6 @@ export type bannerDataProps = {
 
 const Banner = ({ fields }: bannerDataProps) => {
   if (fields === null || fields === undefined) return <></>;
-
   return (
     <div data-component="authorable/general/banner" data-testid="banner">
       <div className="relative">
