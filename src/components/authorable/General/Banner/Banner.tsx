@@ -41,15 +41,11 @@ const Banner = ({ fields }: bannerDataProps) => {
           >
             <div className={'container mx-auto'}>
               <div
-                className={clsx('md:flex flex-col rounded-md overflow z-10 ', {
-                  'sm:flex sm:flex-col': fields?.contentPosition?.value === 'default',
-                  'sm:flex-col-reverse': fields?.contentPosition?.value === 'secondary',
-                  'sm:flex-col': fields?.contentPosition?.value === 'right',
-                })}
+                className={clsx('md:flex flex-col rounded-md overflow z-10 sm:flex sm:flex-col')}
               >
                 <Text
                   tag="h4"
-                  className={clsx('mt-2   font-bold font-sans text-xl md:text-4xl ', {
+                  className={clsx('mt-2   font-bold font-sans text-xl lg:text-4xl ', {
                     ' text-start': fields?.contentPosition?.value === 'default',
                     ' text-center': fields?.contentPosition?.value === 'center',
                     ' text-end': fields?.contentPosition?.value === 'right',
@@ -57,7 +53,7 @@ const Banner = ({ fields }: bannerDataProps) => {
                   field={fields?.title}
                 />
                 <RichTextA11yWrapper
-                  className={clsx('mt-4  font-sans font-bold text-lg md:text-2xl', {
+                  className={clsx('mt-4  font-sans font-bold text-lg lg:text-2xl', {
                     ' text-start ': fields?.contentPosition?.value === 'default',
                     ' text-center': fields?.contentPosition?.value === 'center',
                     ' text-end': fields?.contentPosition?.value === 'right',
