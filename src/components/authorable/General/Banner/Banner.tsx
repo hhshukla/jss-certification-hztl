@@ -27,29 +27,29 @@ const Banner = ({ fields }: bannerDataProps) => {
     <div data-component="authorable/general/banner" data-testid="banner">
       <div className="relative">
         <Image field={fields?.image} className="onject-cover  text-white" />
-        <div className="md:m-8 md:p-4 md:absolute inset-0  md:flex md:justify-center flex-col ">
-          <div className={'container mx-auto'}>
-            <div
-              className={clsx('md:flex rounded-md overflow z-10 ', {
-                'sm:flex sm:flex-col': fields?.contentPosition?.value === 'default',
-                'sm:flex-col-reverse': fields?.contentPosition?.value === 'secondary',
-                'sm:flex-col': fields?.contentPosition?.value === 'right',
-              })}
-            >
+        <div className="md:m-8 md:p-4 md:absolute inset-0  md:flex md:justify-center md:items-center flex-col ">
+          <div
+            className={clsx(' font-sans text-2xl flex flex-col md:rounded-lg p-4 md:w-1/2', {
+              'bg-black': fields?.contentPosition?.value === 'default',
+              'md:bg-orange-600 md:bg-opacity-30  text-white md:text-green-500 justify-center items-start  ':
+                fields?.contentPosition?.value === 'default',
+              'bg-blue-500 text-white md:bg-white md:bg-opacity-30  md:text-blue-500  justify-center items-center':
+                fields?.contentPosition?.value === 'center',
+              'bg-green-600 bg-opacity-30 text-orange-500  justify-end items-end ':
+                fields?.contentPosition?.value === 'right',
+            })}
+          >
+            <div className={'container mx-auto'}>
               <div
-                className={clsx('md:m-2 p-4 font-sans text-2xl flex flex-col md:rounded-lg ', {
-                  'bg-black': fields?.contentPosition?.value === 'default',
-                  'md:bg-orange-600 md:bg-opacity-30  text-white md:text-green-500 justify-center items-start md:p-4 m-2 ':
-                    fields?.contentPosition?.value === 'default',
-                  'bg-blue-500 text-white md:bg-white md:bg-opacity-30  md:text-blue-500  justify-center items-center':
-                    fields?.contentPosition?.value === 'center',
-                  'bg-green-600 bg-opacity-30 text-orange-500  justify-end items-end p-4 md:m-2':
-                    fields?.contentPosition?.value === 'right',
+                className={clsx('md:flex flex-col rounded-md overflow z-10 ', {
+                  'sm:flex sm:flex-col': fields?.contentPosition?.value === 'default',
+                  'sm:flex-col-reverse': fields?.contentPosition?.value === 'secondary',
+                  'sm:flex-col': fields?.contentPosition?.value === 'right',
                 })}
               >
                 <Text
                   tag="h4"
-                  className={clsx('mt-2   font-bold font-sans ', {
+                  className={clsx('mt-2   font-bold font-sans text-xl md:text-4xl ', {
                     ' text-start': fields?.contentPosition?.value === 'default',
                     ' text-center': fields?.contentPosition?.value === 'center',
                     ' text-end': fields?.contentPosition?.value === 'right',
@@ -57,8 +57,8 @@ const Banner = ({ fields }: bannerDataProps) => {
                   field={fields?.title}
                 />
                 <RichTextA11yWrapper
-                  className={clsx('mt-4  font-sans font-bold', {
-                    ' text-start': fields?.contentPosition?.value === 'default',
+                  className={clsx('mt-4  font-sans font-bold text-lg md:text-2xl', {
+                    ' text-start ': fields?.contentPosition?.value === 'default',
                     ' text-center': fields?.contentPosition?.value === 'center',
                     ' text-end': fields?.contentPosition?.value === 'right',
                   })}
